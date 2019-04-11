@@ -1,7 +1,6 @@
 {
   "private": true,
   "name": "jobs-near-you",
-  "homepage": "https://jobs-near-you.netlify.com/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
