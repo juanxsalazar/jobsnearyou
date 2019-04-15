@@ -18,7 +18,7 @@ componentDidMount() {
         return (
             <div>
                <div className="center"> <input type="search" placeholder="Search by Address or Zipcode"></input>
-    <button>Search</button>  
+    <button className="search">Search</button>  
     <p></p> </div>
                     <Map businesses={this.state.businesses} />
               <ul>

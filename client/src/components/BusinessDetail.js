@@ -26,13 +26,17 @@ loadJobs(id) {
     render() {
         return (
             <div> 
-                <ul>
                 {
-                        this.state.jobs.map(job => <li>
-                       {job.title}    
-                        </li>)
+                        this.state.jobs.map(job => <p>
+                       Job: {job.title}, {job.schedule_type}  <br></br>   
+                       Posted Date: {job.posted_date} <br></br>
+                       Pay Range: {job.pay_range}      <br></br>
+                       Requirements: {job.requirements}   <br></br>     
+                       Description: {job.description}    <br></br>    
+                       How to Apply: {job.how_to_apply}         
+                        </p>)
                     }
-                    </ul>
+        
             </div>
         );
     }

@@ -7,7 +7,7 @@ class HomePage extends Component {
   render() {
     return <div className="center">
     <h1>Jobs Near you</h1>
-    <h4>A simple app to show you a map of the places hiring near your!</h4>
+    <h4>An easy to use app to show you a map with the businesses that are hiring near your!</h4>
     {/* <ListJobs /> */}
     </div>
   }

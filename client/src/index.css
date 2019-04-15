@@ -7,8 +7,11 @@ html {
 }
 
 .map {
-  height: 50rem;
-  width: 79rem;
+  /* height: 40rem;
+  width: 79rem; */
+  height: 25rem;
+  width: 70%;
+  
 }
 
 body {
@@ -42,5 +45,6 @@ input {
 }
 
 .infobox {
-  
+  color: #0077B5;
+  float: left;
 }

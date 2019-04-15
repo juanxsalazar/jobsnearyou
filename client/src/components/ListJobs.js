@@ -18,7 +18,7 @@ class ListJobs extends Component {
                 <ul>
                     {
                         this.state.jobs.map(job => <li>
-                       Job: {job.title}    
+                        {job.title}    
                         </li>)
                     }
                 

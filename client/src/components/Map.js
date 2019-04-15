@@ -56,7 +56,7 @@ class Map extends Component {
         anchor="top"
         longitude={popupInfo.longitude}
         latitude={popupInfo.latitude}
-        closeOnClick={false}
+        closeOnClick={true}
         onClose={() => {
           this.setState({ popupInfo: null })
         }}
@@ -64,18 +64,21 @@ class Map extends Component {
         <div className="infobox">
           <p>{popupInfo.name}</p>
           <p>{popupInfo.address}</p>
-          <p>Jobs: 
+          <p>
           <BusinessDetail id={popupInfo.id}/></p>
         </div>
       </Popup>
     )
   }
 
+  
   render() {
     const { viewport } = this.state;
 
     return (
-      <div className="map">
+    <>
+          <div class='sidebar pad2'></div>
+    <div id="map" className="map pad2" >
         <MapGL
           {...viewport}
           width="100%"
@@ -83,7 +86,7 @@ class Map extends Component {
           mapStyle="mapbox://styles/mapbox/streets-v11"
           mapboxApiAccessToken="pk.eyJ1IjoianVhbjIzc2FsYXphciIsImEiOiJjanUyaW0xMWIwY3QxNDRvN3ZnMW91N3BxIn0._YtrtrN7f2ba2F4S3HVL2Q"
           onViewportChange={this._updateViewport}
-        >
+        > 
           {this.renderPopup()}  
         {this.props.businesses.map(business => (
           <Marker
@@ -118,6 +121,7 @@ offsetLeft={-32} >
           </div>
         </MapGL>
       </div>
+      </>
     );
   }
 }
