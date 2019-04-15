@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   scope :api do
+    get 'geocode/lookup'
     resources :businesses do 
       resources :jobs
     end

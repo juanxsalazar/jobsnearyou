@@ -17,16 +17,10 @@ componentDidMount() {
     render() {
         return (
             <div>
-               <div className="center"> <input type="search" placeholder="Search by Address or Zipcode"></input>
+               {/* <div className="center"> <input type="search" placeholder="Search by Address or Zipcode"></input>
     <button className="search">Search</button>  
-    <p></p> </div>
+    <p></p> </div> */}
                     <Map businesses={this.state.businesses} />
-              <ul>
-                  {
-                      this.state.businesses.map(business => 
-                    <BusinessDetail key={business.id} business={business} />
-                      )}
-            </ul>  
             </div>
         );
     }
