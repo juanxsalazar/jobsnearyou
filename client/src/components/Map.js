@@ -3,7 +3,7 @@ import MapGL, { Marker, NavigationControl, Popup } from "react-map-gl";
 import axios from 'axios'
 import ppl from '../images/ppl.png'
 import cash from "../images/cash.png";
-import BusinessDetail from "./BusinessDetail";
+import JobList from "./JobList";
 
 class Map extends Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class Map extends Component {
       search: "",
       userLocation: null,
       popupInfo: null, 
+      sideBarJobs: null,
       viewport: {
         latitude: 27.7700989,
         longitude: -82.6364093,
@@ -45,6 +46,16 @@ class Map extends Component {
     padding: "10px"
   };
 
+  renderSideBarJobs = () => {
+    const { popupInfo } = this.state
+  
+    if (!popupInfo) {
+      return <div>Please click on a marker to see job postings.</div>
+    }
+  
+    return <JobList id={popupInfo.id}/>
+  }
+
   renderPopup = () => {
     const { popupInfo } = this.state
   
@@ -54,11 +65,11 @@ class Map extends Component {
   
     return (
       <Popup
-        tipSize={5}
+        tipSize={10}
         anchor="top"
         longitude={popupInfo.longitude}
         latitude={popupInfo.latitude}
-        closeOnClick={true}
+        closeOnClick={false}
         onClose={() => {
           this.setState({ popupInfo: null })
         }}
@@ -66,13 +77,13 @@ class Map extends Component {
         <div className="infobox">
           <p>{popupInfo.name}</p>
           <p>{popupInfo.address}</p>
-          <p>
-          <BusinessDetail id={popupInfo.id}/></p>
         </div>
+  
       </Popup>
     )
   }
 
+  
   searchChange = (event) => {
     this.setState({
       search: event.target.value
@@ -80,8 +91,6 @@ class Map extends Component {
   }
 
   doSearch = (event) =>{
-    console.log(this.state.search)
-
     axios.get(`/api/geocode/lookup?search=${this.state.search}`).then(response => {
       this.setState({
         userLocation: { lat: response.data[0], lng: response.data[1] },
@@ -109,7 +118,12 @@ class Map extends Component {
     Search
     </button>  
    </div>    
-    <div id="map" className="map pad2" >
+    <div id="map" className="map" >
+      <div className="sidebar">
+
+        {this.renderSideBarJobs()}
+
+      </div> 
         <MapGL
           {...viewport}
           width="100%"
@@ -123,12 +137,12 @@ class Map extends Component {
           <Marker
             latitude={business.latitude}
             longitude={business.longitude}
-            offsetTop={-64}
-            offsetLeft={-32}
+            offsetTop={-32}
+            offsetLeft={-16}
           >
             <img 
-            width={64} 
-            height={64} 
+            width={32} 
+            height={32} 
             src={cash}
             onClick={() => {
               this.setState({ popupInfo: business })

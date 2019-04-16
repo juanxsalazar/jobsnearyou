@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import BusinessDetail from '../components/BusinessDetail'
 import Map from '../components/Map'
 
 class BusinessList extends Component {
@@ -17,9 +16,6 @@ componentDidMount() {
     render() {
         return (
             <div>
-               {/* <div className="center"> <input type="search" placeholder="Search by Address or Zipcode"></input>
-    <button className="search">Search</button>  
-    <p></p> </div> */}
                     <Map businesses={this.state.businesses} />
             </div>
         );

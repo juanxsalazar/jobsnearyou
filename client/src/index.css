@@ -10,7 +10,8 @@ html {
   /* height: 40rem;
   width: 79rem; */
   height: 25rem;
-  width: 100%;
+  width: 80%;
+  float:right;
   
 }
 
@@ -21,6 +22,7 @@ html {
 .mapboxgl-popup-close-button {
   color: black;
 }
+
 body {
   margin: 0;
   min-height: 100%;
@@ -54,4 +56,19 @@ input {
 .infobox {
   color: #0077B5;
   float: left;
+}
+
+.sidebar {
+  height: 25rem;
+  width: 20%;
+  position: absolute;
+  z-index: 1;
+  top: 10;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+}
+
+.small-font {
+  font-size: .75rem;
 }

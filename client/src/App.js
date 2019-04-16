@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import HomePage from './components/HomePage'
+import Header from './components/Header'
 import BusinessList from './components/BusinessList'
 
 class App extends Component {
   render() {
     return <>
-    <HomePage />
+    <Header />
     <BusinessList />
     </>
   }
